@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>TNS Chat Overlay</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      overflow: hidden;
+    }
+    #chat-container {
+      position: relative;
+      width: 400px;
+      height: 600px;
+    }
+    #chat-frame {
+      position: absolute;
+      top: 10px; left: 10px;
+      width: calc(100% - 20px);
+      height: calc(100% - 20px);
+      border: none;
+      background: transparent;
+    }
+    /* рамка */
+    #frame {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none; /* чтобы чат кликабельным оставался */
+      box-sizing: border-box;
+      border: 5px solid #2a003c;
+      /* градиент справа */
+      border-image: linear-gradient(to bottom, #4b0082, #1a003d) 1;
+    }
+    #frame:after {
+      content: "TNS";
+      position: absolute;
+      bottom: 5px; left: 50%;
+      transform: translateX(-50%);
+      color: #e6e6ff;
+      font-family: sans-serif;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-container">
+    <iframe id="chat-frame"
+      src="https://www.twitch.tv/embed/ewm3n/chat?parent=YOUR_DOMAIN_HERE"
+      allowtransparency="true"
+      ></iframe>
+    <div id="frame"></div>
+  </div>
+</body>
+</html>
